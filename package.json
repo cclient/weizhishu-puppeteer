@@ -1,0 +1,32 @@
+{
+    "name": "weibo",
+    "version": "1.0.0",
+    "description": "微博指数 with puppeteer",
+    "keywords": [
+        "weibo",
+        "weizhishu",
+        "微指数",
+        "微博指数",
+        "puppeteer"
+    ],
+    "dependencies": {
+        "puppeteer": "^1.6.1",
+        "querystring": "^0.2.0"
+    },
+    "devDependencies": {},
+    "main": "index.js",
+    "files": [
+        "weizhishu",
+        "index.js"
+    ],
+    "scripts": {},
+    "homepage": "https://github.com/cclient/weizhishu-puppeteer",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/cclient/weizhishu-puppeteer"
+    },
+    "engines": {
+        "node": ">= 8.0.0"
+    },
+    "license": "MIT"
+}
