@@ -10,7 +10,7 @@
 
 #### [phantomjs](https://github.com/ariya/phantomjs)
 
-之前写过些[自动化工具](https://github.com/cclient/sina_multi_account_login)，开发体验很差
+之前写过些 新浪账号批量自动登录 [自动化工具](https://github.com/cclient/sina_multi_account_login)，开发体验很差
 
 主要缺点
 
@@ -26,7 +26,7 @@
 
 ### [chrome extensions](https://developer.chrome.com/extensions)
 
-之前改写过网易有道的插件[chrome-extensions-youdaowithwordnode](https://github.com/cclient/chrome-extensions-youdaowithwordnode)
+之前改写过 网易有道的插件 [chrome-extensions-youdaowithwordnode](https://github.com/cclient/chrome-extensions-youdaowithwordnode)
 
 桌面写点辅助的小工具还好，但不适合在服务器上，或许有在服务器上执行的方案，会多花不少功夫
 
