@@ -50,35 +50,40 @@
 
 ##### 执行方式两种
 
-* launtch(默认方式)
+* 1 launtch(默认方式)
   
-  通过的本地的可执行文件启动chrome实例,在安装的Chrome的mac可以直接执行
+  通过的本地的可执行文件启动chrome实例,在已安装Chrome的mac上可以直接执行，搜索本机的chrome程序实例通信
 
-getValByWord("世界杯")
+  getValByWord("世界杯")
 
-* 2 connect
+* 2 connect(通过远程chrome实例接口调用)
 
    以chrome-devtools-protoco连接远程实例
 
-  * 启动远程实例
+  * 1 启动远程实例
 
    docker run -d -p 9222:9222 --name=chrome-headless [alpeware/chrome-headless-trunk](https://hub.docker.com/r/alpeware/chrome-headless-trunk/)
 
-  * 查看ws
+  * 查看实例接口信息ws(可通过服务启动日志docker logs,或服务状态curl http://127.0.0.1:9222/json 获取)
 
    docker logs --tail 100 -f chrome-headless
 
-   ```log
+```log
+   
 Looking for CA certificate in /data/certificates
 Keystore created
 Fontconfig warning: "/etc/fonts/fonts.conf", line 86: unknown element "blank"
 [0730/105014.373363:ERROR:gpu_process_transport_factory.cc(1007)] Lost UI shared context.
 DevTools listening on ws://0.0.0.0:9222/devtools/browser/49f5281e-8668-44f5-896f-ee2eee6553ab
-    ```
 
-    或 curl http://127.0.0.1:9222/json
+```
 
-    ```json
+`ws://0.0.0.0:9222/devtools/browser/49f5281e-8668-44f5-896f-ee2eee6553ab`
+
+或 curl http://127.0.0.1:9222/json
+
+```json
+    
 [ {
    "description": "",
    "devtoolsFrontendUrl": "/devtools/inspector.html?ws=127.0.0.1:9222/devtools/page/9C81EA41D18B2C20EDC5982B476FF20C",
@@ -88,8 +93,14 @@ DevTools listening on ws://0.0.0.0:9222/devtools/browser/49f5281e-8668-44f5-896f
    "url": "about:blank",
    "webSocketDebuggerUrl": "ws://127.0.0.1:9222/devtools/page/9C81EA41D18B2C20EDC5982B476FF20C"
 } ]
-    ```
+
+```
+
+`ws://127.0.0.1:9222/devtools/page/9C81EA41D18B2C20EDC5982B476FF20`
 
     ws://127.0.0.1:9222/devtools/page/9C81EA41D18B2C20EDC5982B476FF20C 和 ws://0.0.0.0:9222/devtools/browser/49f5281e-8668-44f5-896f-ee2eee6553ab都可以
+    
 
+    调用远程实例调试接口
+    
     getValByWord("世界杯","ws://0.0.0.0:9222/devtools/page/9C81EA41D18B2C20EDC5982B476FF20C")
